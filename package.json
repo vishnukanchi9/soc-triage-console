@@ -1,0 +1,21 @@
+{
+  "name": "soc-triage-console",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A security operations triage console: React, Node.js, PostgreSQL",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev -w server\" \"npm run dev -w web\"",
+    "seed": "npm run seed -w server",
+    "test": "npm test -w server && npm test -w web",
+    "typecheck": "npm run typecheck -w server && npm run typecheck -w web",
+    "build": "npm run build -w server && npm run build -w web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "puppeteer-core": "^25.13.0"
+  }
+}
